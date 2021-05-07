@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.volt"
+        applicationId "com.example.android_forntend"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
