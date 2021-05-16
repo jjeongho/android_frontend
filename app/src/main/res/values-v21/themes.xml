@@ -14,5 +14,6 @@
         <!-- 상태바 투명 -->
         <item name="android:statusBarColor">@android:color/transparent</item>
 
+
     </style>
 </resources>
