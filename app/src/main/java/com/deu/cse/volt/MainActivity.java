@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     FragmentManager manager;
@@ -30,11 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         manager = getSupportFragmentManager();
 
-        Button home = findViewById(R.id.home_btn);
-        Button search = findViewById(R.id.search_btn);
-        Button dibs = findViewById(R.id.dibs_btn);
-        Button myinfo = findViewById(R.id.myinfo_btn);
-        Button settings = findViewById(R.id.settings_btn);
+        TextView home = findViewById(R.id.home_btn);
+        TextView search = findViewById(R.id.search_btn);
+        TextView dibs = findViewById(R.id.dibs_btn);
+        TextView myinfo = findViewById(R.id.myinfo_btn);
+        TextView settings = findViewById(R.id.settings_btn);
 
         fragmentHome = new FragmentHome();
         fragmentSearch = new FragmentSearch();
