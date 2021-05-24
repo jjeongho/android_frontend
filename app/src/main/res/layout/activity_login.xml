@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_logo_imageview">
 
         <EditText
-            android:id="@+id/login_id_edittext"
+            android:id="@+id/signup_id_edittext"
             android:layout_width="333dp"
             android:layout_height="46dp"
             android:layout_gravity="center"
@@ -40,7 +40,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/login_pwd_edittext"
+            android:id="@+id/signup_pw_edittext"
             android:layout_width="333dp"
             android:layout_height="46dp"
             android:layout_gravity="center"
