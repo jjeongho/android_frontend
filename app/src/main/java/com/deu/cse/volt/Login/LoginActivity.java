@@ -1,14 +1,16 @@
-package com.deu.cse.volt;
+package com.deu.cse.volt.Login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ActionMode;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import com.deu.cse.volt.Main.MainActivity;
+import com.deu.cse.volt.R;
 
 public class LoginActivity extends AppCompatActivity {
 

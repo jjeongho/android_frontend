@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Volt">
 
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Splsash.SplashActivity">
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/ripple_custom" />
@@ -20,8 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Login.LoginActivity"></activity>
+        <activity android:name=".Main.MainActivity"></activity>
     </application>
 
 </manifest>

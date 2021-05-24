@@ -1,16 +1,15 @@
-package com.deu.cse.volt;
+package com.deu.cse.volt.Dibs;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.deu.cse.volt.R;
 
 import java.util.ArrayList;
 import java.util.List;

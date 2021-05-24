@@ -1,4 +1,4 @@
-package com.deu.cse.volt;
+package com.deu.cse.volt.Myinfo;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,12 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class FragmentHome extends Fragment {
+import com.deu.cse.volt.R;
+
+public class FragmentMyinfo extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.home_fragment, container, false);
+
+
+        return inflater.inflate(R.layout.myinfo_fragment, container, false);
     }
 
     @Override

@@ -1,10 +1,13 @@
-package com.deu.cse.volt;
+package com.deu.cse.volt.Splsash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.deu.cse.volt.Login.LoginActivity;
+import com.deu.cse.volt.R;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -19,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
         Handler handler=new Handler();
         handler.postDelayed(new Runnable(){
             public void run(){
-                Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+                Intent intent=new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

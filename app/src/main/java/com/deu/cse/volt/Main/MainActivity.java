@@ -1,18 +1,20 @@
-package com.deu.cse.volt;
+package com.deu.cse.volt.Main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+
+import com.deu.cse.volt.Dibs.FragmentDibs;
+import com.deu.cse.volt.Myinfo.FragmentMyinfo;
+import com.deu.cse.volt.R;
+import com.deu.cse.volt.Search.FragmentSearch;
+import com.deu.cse.volt.Settings.FragmentSettings;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     FragmentManager manager;
