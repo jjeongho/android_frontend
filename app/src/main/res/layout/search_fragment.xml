@@ -9,7 +9,7 @@
 
     <FrameLayout
         android:id="@+id/search_layout"
-        android:layout_width="408dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,7 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             app:iconifiedByDefault="false"
             app:queryHint="            제품명,모델번호,브랜드명 등" />
     </FrameLayout>
