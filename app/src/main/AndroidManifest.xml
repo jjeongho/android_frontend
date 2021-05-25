@@ -9,19 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Volt">
-
+        <activity android:name=".Settings.InquiryActivity"></activity>
+        <activity android:name=".Settings.QnaActivity" />
+        <activity android:name=".Settings.Activity" />
+        <activity android:name=".Settings.AgreeActivity" />
+        <activity android:name=".Settings.SecurityActivity" />
+        <activity android:name=".Settings.PaymentActivity" />
+        <activity android:name=".Settings.AlarmModifyActivity" />
+        <activity android:name=".Settings.NoticeActivity" />
+        <activity android:name=".Settings.MyinfoModifyActivity" />
         <activity android:name=".Splsash.SplashActivity">
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/ripple_custom" />
+            <meta-data
+                android:name="com.google.android.actions"
+                android:resource="@xml/ripple_custom" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.LoginActivity"></activity>
-        <activity android:name=".Main.MainActivity"></activity>
+        <activity android:name=".Login.LoginActivity" />
+        <activity android:name=".Main.MainActivity" />
     </application>
 
 </manifest>

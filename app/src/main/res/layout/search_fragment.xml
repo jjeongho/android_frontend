@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:iconifiedByDefault="false"
+            app:searchIcon="@drawable/big_search"
             app:queryHint="            제품명,모델번호,브랜드명 등" />
     </FrameLayout>
 
