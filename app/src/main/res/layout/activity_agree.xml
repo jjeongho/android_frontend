@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="이용약관"
-        android:textStyle="bold"
-        android:textSize="20sp"
         android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +58,7 @@
                     android:id="@+id/agree_tostitle_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="&lt;귀살대&gt;(이하 &apos;볼트 (Volt)&apos;)은(는) 「개인정보 보호법」 제30조에 따라 정부주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.\n\n○ 이 개인정보처리방침은 2021년 5월 28부터 적용됩니다."
+                    android:text="\n개인수집 동의\n\n&lt;귀살대&gt;(이하 &apos;볼트 (Volt)&apos;)은(는) 「개인정보 보호법」 제30조에 따라 정부주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.\n\n○ 이 개인정보처리방침은 2021년 5월 28부터 적용됩니다."
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
