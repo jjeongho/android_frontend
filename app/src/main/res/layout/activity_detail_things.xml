@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="bottom"
+
+
+    tools:context=".Main.DetailThingsActivity">
+
+    <LinearLayout
+        android:id="@+id/fragment_container_detail"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_weight="10"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/detail_bidding_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_custom"
+            android:drawableLeft="@drawable/detail_thing_bidding" />
+
+        <TextView
+            android:id="@+id/detail_sell_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_custom"
+            android:drawableLeft="@drawable/detail_things_sell" />
+
+        <TextView
+            android:id="@+id/detail_purchase_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/detail_thing_purchase"
+            android:background="@drawable/ripple_custom"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>
