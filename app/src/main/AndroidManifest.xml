@@ -13,7 +13,6 @@
         <activity android:name=".Main.DetailThingsActivity"></activity>
         <activity android:name=".Settings.InquiryActivity" />
         <activity android:name=".Settings.QnaActivity" />
-        <activity android:name=".Settings.Activity" />
         <activity android:name=".Settings.AgreeActivity" />
         <activity android:name=".Settings.SecurityActivity" />
         <activity android:name=".Settings.PaymentActivity" />
@@ -32,10 +31,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login.LoginActivity" />
+        <activity android:name=".Login.PWDsearchActivity" />
+        <activity android:name=".Login.SignupActivity" />
+        <activity android:name=".Login.IDsearchActivity" />
         <activity android:name=".Main.MainActivity" />
 
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
-
 </manifest>

@@ -8,7 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.deu.cse.volt.Main.MainActivity;
 import com.deu.cse.volt.R;
@@ -37,12 +39,19 @@ public class LoginActivity extends AppCompatActivity {
         iv.startAnimation(animation);
 
         ImageView button = findViewById(R.id.login_login_button);
-        loadLoginDTO(new LoginVO("choko","hwang","password"));
+        TextView signup_btn = findViewById(R.id.login_signup_button);
+        TextView idsearch_btn = findViewById(R.id.login_idsearch_button);
+        TextView pwdsearch_btn = findViewById(R.id.login_pwdsearch_button);
+        EditText id_edit = findViewById(R.id.login_id_edittext);
+        EditText pw_edit = findViewById(R.id.login_pw_edittext);
+
+        // 여기 들어가야지 병신아
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                loadLoginDTO(new LoginVO(id_edit.getText().toString(),pw_edit.getText().toString(),"password"));
 
                 startActivity(intent);
 //                loadSignDTO(new LoginVO("testtest","test"));
@@ -50,8 +59,37 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
-    }
 
+        signup_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
+
+                startActivity(intent);
+
+            }
+        });
+
+        idsearch_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), IDsearchActivity.class);
+
+                startActivity(intent);
+
+            }
+        });
+
+        pwdsearch_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PWDsearchActivity.class);
+
+                startActivity(intent);
+
+            }
+        });
+    }
     public void loadSignDTO(UserVO userVO) {
 
         signUpService.signUp(userVO).enqueue(new Callback<SignUpDTO>() {
@@ -93,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
 }
+
 
 
