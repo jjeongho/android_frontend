@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.deu.cse.volt.R;
@@ -17,7 +18,7 @@ public class DetailThingsActivity extends AppCompatActivity implements View.OnCl
     FragmentBidding fragmentBidding;
     FragmentSell fragmentSell;
     FragmentPurchase fragmentPurchase;
-
+    FragmentDetailThings fragmentDetailThings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +30,18 @@ public class DetailThingsActivity extends AppCompatActivity implements View.OnCl
 
         manager = getSupportFragmentManager();
 
-        TextView bidding = findViewById(R.id.detail_bidding_btn);
-        TextView sell = findViewById(R.id.detail_sell_btn);
-        TextView purchase = findViewById(R.id.detail_purchase_btn);
+        ImageView bidding = findViewById(R.id.detail_bidding_btn);
+        ImageView sell = findViewById(R.id.detail_sell_btn);
+        ImageView purchase = findViewById(R.id.detail_purchase_btn);
 
         fragmentBidding = new FragmentBidding();
         fragmentSell = new FragmentSell();
         fragmentPurchase = new FragmentPurchase();
+        fragmentDetailThings = new FragmentDetailThings();
+
 
         ft_dt = manager.beginTransaction();
-        ft_dt.add(R.id.fragment_container_detail, fragmentBidding);
+        ft_dt.add(R.id.fragment_container_detail, fragmentDetailThings);
         ft_dt.addToBackStack(null);
         ft_dt.commit();
 

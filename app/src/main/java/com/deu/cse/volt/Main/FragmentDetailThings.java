@@ -15,8 +15,9 @@ public class FragmentDetailThings extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.detailthings_fragment, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.detailthings_fragment, container, false);
+        return rootView;
     }
 
     @Override

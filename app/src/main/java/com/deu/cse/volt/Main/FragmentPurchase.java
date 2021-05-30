@@ -16,7 +16,7 @@ public class FragmentPurchase extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.bidding_fragment, container, false);
+        return inflater.inflate(R.layout.purchase_fragment, container, false);
     }
 
     @Override
