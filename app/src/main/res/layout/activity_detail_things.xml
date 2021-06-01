@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/detail_thing_bidding" />
@@ -40,6 +41,7 @@
             android:id="@+id/detail_purchase_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/detail_thing_purchase" />
@@ -51,6 +53,7 @@
             android:layout_marginEnd="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/detail_things_sell" />
     </LinearLayout>
