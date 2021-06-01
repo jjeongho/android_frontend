@@ -60,7 +60,6 @@
             android:layout_marginRight="24dp"
             android:background="@drawable/edittext_stoke_fill_retangle"
             android:hint="   이메일을 입력하세요."
-            android:password="true"
             android:textColor="@color/black"
             android:textColorHint="@color/blank_text"
             android:textSize="14sp" />
@@ -73,5 +72,18 @@
             android:layout_marginTop="32dp"
             android:layout_marginBottom="16dp"
             app:srcCompat="@drawable/login_button" />
+
+
+        <TextView
+            android:id="@+id/text_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="30dp"
+            android:textAlignment="center"
+            android:layout_gravity="center"
+            />
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

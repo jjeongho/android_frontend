@@ -1,6 +1,7 @@
 package com.deu.cse.volt.Myinfo;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,16 @@ public class FragmentMyinfo extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.myinfo_fragment, container, false);
 
+        if(getArguments() != null) { // bearertoken 받아오기
+            String token = getArguments().getString("bearertoken");
+            Log.e("TOKEN_MYINFO", token);
 
-        return inflater.inflate(R.layout.myinfo_fragment, container, false);
+        }
+
+        return rootView;
     }
 
     @Override

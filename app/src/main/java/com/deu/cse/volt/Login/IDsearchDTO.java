@@ -3,9 +3,7 @@ package com.deu.cse.volt.Login;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class SignUpDTO {
+public class IDsearchDTO {
     @SerializedName("statusCode")
     @Expose
     private String statusCode;
@@ -17,7 +15,7 @@ public class SignUpDTO {
 
     @SerializedName("data")
     @Expose
-    private SignUpDataDTO data;
+    private IDsearchDataDTO data;
 
 
     public String getStatusCode() {
@@ -36,11 +34,11 @@ public class SignUpDTO {
         this.responseMessage = responseMessage;
     }
 
-    public SignUpDataDTO getData() {
+    public IDsearchDataDTO getData() {
         return data;
     }
 
-    public void setData(SignUpDataDTO data) {
+    public void setData(IDsearchDataDTO data) {
         this.data = data;
     }
 }

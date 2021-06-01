@@ -1,6 +1,7 @@
 package com.deu.cse.volt.Dibs;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,12 @@ public class FragmentDibs extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.dibs_fragment, container, false);
 
+        if(getArguments() != null) { // bearertoken 받아오기
+            String token = getArguments().getString("bearertoken");
+            Log.e("TOKEN_DIBS", token);
+        }
+
+
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerView);
 
         list = DibsItem.createContactsList(5);
@@ -33,6 +40,8 @@ public class FragmentDibs extends Fragment {
         adapter = new DibsAdapter(getActivity(), list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
+
+
 
         return rootView;
     }

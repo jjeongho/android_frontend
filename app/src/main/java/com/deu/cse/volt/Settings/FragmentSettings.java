@@ -3,6 +3,7 @@ package com.deu.cse.volt.Settings;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,12 @@ public class FragmentSettings extends Fragment {
         ImageView qna_btn = (ImageView) rootView.findViewById(R.id.settings_qna_image);
         ImageView inquiry_btn = (ImageView) rootView.findViewById(R.id.settings_inquiry_image);
 
+
+        if(getArguments() != null) { // bearertoken 받아오기
+            String token = getArguments().getString("bearertoken");
+            Log.e("TOKEN_SETTINGS", token);
+
+        }
 
         //프래그먼트에서 액티비티 이동
         myinfo_btn.setOnClickListener(new View.OnClickListener() {

@@ -2,6 +2,7 @@ package com.deu.cse.volt.Search;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,14 @@ public class FragmentSearch extends Fragment {
         
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.search_fragment, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.search_recyclerView);
-        
+
+        if(getArguments() != null) { // bearertoken 받아오기
+            String token = getArguments().getString("bearertoken");
+            Log.e("TOKEN_SEARCH", token);
+
+        }
+
+
         list = SearchItem.createContactsList(5);
         recyclerView.setHasFixedSize(true);
         adapter = new SearchAdapter(getActivity(), list);

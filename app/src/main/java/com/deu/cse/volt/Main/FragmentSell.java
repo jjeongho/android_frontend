@@ -15,8 +15,14 @@ public class FragmentSell extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.sell_fragment, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.sell_fragment, container, false);
+
+        if(getArguments() != null) { // bearertoken 받아오기
+            String token = getArguments().getString("bearertoken");
+        }
+
+        return rootView;
     }
 
     @Override
