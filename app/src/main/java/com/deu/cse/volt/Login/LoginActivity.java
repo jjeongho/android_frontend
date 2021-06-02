@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.deu.cse.volt.Main.MainActivity;
 import com.deu.cse.volt.R;
@@ -45,18 +48,14 @@ public class LoginActivity extends AppCompatActivity {
         EditText id_edit = findViewById(R.id.login_id_edittext);
         EditText pw_edit = findViewById(R.id.login_pw_edittext);
 
-        // 여기 들어가야지 병신아
+        // 화면전환
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 loadLoginDTO(new LoginVO(id_edit.getText().toString(),pw_edit.getText().toString(),"password"));
 
-                startActivity(intent);
-//                loadSignDTO(new LoginVO("testtest","test"));
 
-                finish();
             }
         });
 
@@ -90,13 +89,14 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    public void loadSignDTO(UserVO userVO) {
+  /*  public void loadSignDTO(UserVO userVO) {
 
         signUpService.signUp(userVO).enqueue(new Callback<SignUpDTO>() {
             @Override
             public void onResponse(Call<SignUpDTO> call, Response<SignUpDTO> response) {
                 if (response.isSuccessful()) {
                     Log.d("TEST",response.body().getUsername());
+
                     // response.body()
                     // response.body()에서 넘어오는 데이터로 Adapter에 뿌려주기
                 } else {
@@ -106,21 +106,35 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SignUpDTO> call, Throwable t) {
-                Log.d("REST ERROR!", t.getMessage());
+                Log.d("REST ERROR!`", t.getMessage());
             }
         });
-    }
+    }*/
 
     public void loadLoginDTO(LoginVO loginVO) {
 
         loginService.getToken(loginVO.getUsername(), loginVO.getPassword(), loginVO.getGrant_type()).enqueue(new Callback<LoginDTO>() {
             @Override
             public void onResponse(Call<LoginDTO> call, Response<LoginDTO> response) {
-                if (response.isSuccessful()) {
+                if (response.isSuccessful()) {//아이디나 비번이 맞으면 화면을 이동 그리고 bearertoken을 넘겨준다.
                     Log.d("TEST",response.body().getAccess_token());
+
+                    String temp = response.body().getAccess_token(); //bearer token 발급 받
+
+                    BearerTokenTemp bt = BearerTokenTemp.getInstance(); // bearertokentemp 클래스에 저장
+                    bt.setBearerToken(temp);
+                    Intent intent = new Intent(getApplicationContext() ,MainActivity.class);
+                    intent.putExtra("Data", temp);
+                    startActivity(intent);
+                    finish();
+
+
                     // response.body()
                     // response.body()에서 넘어오는 데이터로 Adapter에 뿌려주기
                 } else {
+                    String msg = "가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.";
+                    Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
+
                     Log.d("REST FAILED MESSAGE", response.message());
                 }
             }
@@ -130,7 +144,9 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("REST ERROR!", t.getMessage());
             }
         });
+
     }
+
 }
 
 
