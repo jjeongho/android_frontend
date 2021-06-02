@@ -234,7 +234,11 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
-                    android:layout_marginRight="24dp" />
+                    android:layout_marginRight="24dp"
+                    android:max="100"
+                    android:progress="50"
+                    android:progressDrawable="@xml/seekbar_main_background"
+                    android:thumb="@xml/seekbar_main_thumb" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -380,13 +384,13 @@
                         android:id="@+id/purchasae_shippingfeeinfo_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_marginStart="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_weight="2"
                         android:gravity="left"
                         android:text="배송비 정보"
                         android:textColor="@color/blank_text"
-                        android:layout_gravity="center_vertical"
                         android:textSize="14sp" />
 
                     <ImageView
@@ -400,12 +404,12 @@
                         android:id="@+id/purchase_enroll_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:text="등록"
                         android:textColor="@color/main"
-                        android:textStyle="bold"
-                        android:layout_gravity="center_vertical"
-                        android:text="등록" />
+                        android:textStyle="bold" />
 
                     <ImageView
                         android:id="@+id/purchase_infodetail_image"
@@ -434,9 +438,9 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginLeft="8dp"
                         android:layout_weight="1"
-                        android:textSize="14sp"
+                        android:text="결제 수단"
                         android:textColor="@color/blank_text"
-                        android:text="결제 수단" />
+                        android:textSize="14sp" />
 
                     <ImageView
                         android:id="@+id/purchase_blank2"
@@ -459,8 +463,8 @@
                     android:id="@+id/purchase_line3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
                     app:srcCompat="@drawable/bg_primary" />
 
                 <RadioButton
@@ -472,10 +476,10 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:text=" 일반결제"
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:text=" 일반결제" />
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/purchase_infopayment_image"
@@ -557,10 +561,10 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:text="구매 입찰 또는 즉시 구매를 통해 주문 결제가 완료되면 단순 변심이나 실수에 의한 취소가 불가합니다."
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="14sp"
-                    android:text="구매 입찰 또는 즉시 구매를 통해 주문 결제가 완료되면 단순 변심이나 실수에 의한 취소가 불가합니다." />
+                    android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/checkBox2"
@@ -571,10 +575,10 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:text="검수 통과된 상품의 교환 및 환불은 불가합니다."
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="14sp"
-                    android:text="검수 통과된 상품의 교환 및 환불은 불가합니다." />
+                    android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/checkBox3"
@@ -585,10 +589,10 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:text="판매자의 판매 거부 및 배송 지연으로 인해 구매가 취소될 수 있습니다."
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="14sp"
-                    android:text="판매자의 판매 거부 및 배송 지연으로 인해 구매가 취소될 수 있습니다." />
+                    android:textStyle="bold" />
 
                 <CheckBox
                     android:id="@+id/checkBox4"
@@ -600,10 +604,10 @@
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
                     android:layout_marginBottom="24dp"
+                    android:text="볼트 구매 약관을 모두 확인했으며 구매에 동의합니다."
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="14sp"
-                    android:text="볼트 구매 약관을 모두 확인했으며 구매에 동의합니다." />
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </ScrollView>
