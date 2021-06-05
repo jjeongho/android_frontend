@@ -1,4 +1,4 @@
-package com.deu.cse.volt.Login;
+package com.deu.cse.volt.Login.SignUp;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.deu.cse.volt.Main.MainActivity;
+import com.deu.cse.volt.Login.LoginActivity;
 import com.deu.cse.volt.R;
 
 import retrofit2.Call;

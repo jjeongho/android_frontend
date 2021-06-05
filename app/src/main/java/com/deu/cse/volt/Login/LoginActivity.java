@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
@@ -15,6 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.deu.cse.volt.Login.IDsearch.IdSearchActivity;
+import com.deu.cse.volt.Login.SignUp.RetrofitSignUpServiceGenerator;
+import com.deu.cse.volt.Login.SignUp.SignUpInterface;
+import com.deu.cse.volt.Login.SignUp.SignupActivity;
 import com.deu.cse.volt.Main.MainActivity;
 import com.deu.cse.volt.R;
 
@@ -72,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
         idsearch_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), IDsearchActivity.class);
+                Intent intent = new Intent(getApplicationContext(), IdSearchActivity.class);
 
                 startActivity(intent);
 
