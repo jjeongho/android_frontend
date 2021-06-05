@@ -32,8 +32,8 @@
         </activity>
         <activity android:name=".Login.LoginActivity" />
         <activity android:name=".Login.PWDsearchActivity" />
-        <activity android:name=".Login.SignupActivity" />
-        <activity android:name=".Login.IDsearchActivity" />
+        <activity android:name=".Login.SignUp.SignupActivity" />
+        <activity android:name=".Login.IDsearch.IdSearchActivity" />
         <activity android:name=".Main.MainActivity" />
 
 

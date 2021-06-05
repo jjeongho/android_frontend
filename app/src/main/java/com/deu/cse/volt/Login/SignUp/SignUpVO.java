@@ -1,4 +1,4 @@
-package com.deu.cse.volt.Login;
+package com.deu.cse.volt.Login.SignUp;
 
 public class SignUpVO {
     private String email;

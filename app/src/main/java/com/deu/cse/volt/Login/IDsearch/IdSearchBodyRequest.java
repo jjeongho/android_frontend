@@ -1,6 +1,6 @@
-package com.deu.cse.volt.Login;
+package com.deu.cse.volt.Login.IDsearch;
 
-public class IDsearchBodyRequest {
+public class IdSearchBodyRequest {
     private String email;
 
     public String getEmail() {
@@ -11,7 +11,7 @@ public class IDsearchBodyRequest {
         this.email = email;
     }
 
-    IDsearchBodyRequest(String email) {
+    IdSearchBodyRequest(String email) {
 
         this.email = email;
     }

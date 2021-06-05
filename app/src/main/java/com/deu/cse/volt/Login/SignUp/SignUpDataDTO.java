@@ -1,9 +1,9 @@
-package com.deu.cse.volt.Login;
+package com.deu.cse.volt.Login.SignUp;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class IDsearchDataDTO {
+public class SignUpDataDTO {
     @SerializedName("result")
     @Expose
     private String result;

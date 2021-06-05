@@ -1,4 +1,4 @@
-package com.deu.cse.volt.Login;
+package com.deu.cse.volt.Login.IDsearch;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,41 +10,39 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.MutableLiveData;
 
+import com.deu.cse.volt.Login.LoginActivity;
 import com.deu.cse.volt.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class IDsearchActivity extends AppCompatActivity {
-    IDsearchInterface idsearchService;
+public class IdSearchActivity extends AppCompatActivity {
+    private IdSearchInterface IdSearchService;
+    private TextView tv;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_idsearch);
 
-        idsearchService = RetrofitIDsearchServiceGenerator.createService(IDsearchInterface.class);
+        IdSearchService = RetrofitIDsearchServiceGenerator.createService(IdSearchInterface.class);
 
         ImageView button = findViewById(R.id.idsearch_confirm_button);
         EditText email_edit = findViewById(R.id.idsearch_email_edittext);
-        TextView output = (TextView) findViewById(R.id.text_output);
-
-
-
-
+        tv = findViewById(R.id.text_output);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String getemail = email_edit.getText().toString().trim();
+                String get_email = email_edit.getText().toString().trim();
                 //널값처리
-                if( getemail.getBytes().length <= 0 ){//빈값이 넘어올때의 처리
-                    Toast.makeText(IDsearchActivity.this, "값을 입력하세요.", Toast.LENGTH_SHORT).show();
+                if( get_email.getBytes().length <= 0 ){//빈값이 넘어올때의 처리
+
+                    Toast.makeText(IdSearchActivity.this, "값을 입력하세요.", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    loadIDsearchDTO(new IDsearchBodyRequest(email_edit.getText().toString()));
-                    output.setText(email_edit.getText().toString());
-
+                    loadIdSearchDTO(new IdSearchBodyRequest(email_edit.getText().toString()));
                 }
 
             }
@@ -52,18 +50,17 @@ public class IDsearchActivity extends AppCompatActivity {
     }
 
 
-    public void loadIDsearchDTO(IDsearchBodyRequest iDsearchBodyRequest) {
-        idsearchService.idsearch(iDsearchBodyRequest.getEmail()).enqueue(new Callback<IDsearchDTO>() {
+    public void loadIdSearchDTO(IdSearchBodyRequest iDsearchBodyRequest) {
+        IdSearchService.idsearch(iDsearchBodyRequest.getEmail()).enqueue(new Callback<IdSearchDTO>() {
             @Override
-            public void onResponse(Call<IDsearchDTO> call, Response<IDsearchDTO> response) {
+            public void onResponse(Call<IdSearchDTO> call, Response<IdSearchDTO> response) {
                 if (response.isSuccessful()) {
                     String result = response.body().getData().getResult().toString();
                     Intent intent = new Intent(getApplicationContext() , LoginActivity.class);
-
                     if(result.equals("true")){
                         Log.d("TEST",result);
+                        tv.setText(result);
                         Toast.makeText(getApplicationContext(),response.body().getData().getResult().toString(),Toast.LENGTH_LONG).show();
-
                         //무조건 수행
                     }else{
                         Toast.makeText(getApplicationContext(),response.body().getResponseMessage().toString(),Toast.LENGTH_LONG).show();
@@ -79,7 +76,7 @@ public class IDsearchActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<IDsearchDTO> call, Throwable t) {
+            public void onFailure(Call<IdSearchDTO> call, Throwable t) {
                 Log.d("REST ERROR!", t.getMessage());
             }
         });

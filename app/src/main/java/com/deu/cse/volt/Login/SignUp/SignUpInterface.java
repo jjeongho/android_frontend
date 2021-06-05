@@ -1,14 +1,8 @@
-package com.deu.cse.volt.Login;
+package com.deu.cse.volt.Login.SignUp;
 
-
-import com.deu.cse.volt.Login.UserVO;
-
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 public interface SignUpInterface {
