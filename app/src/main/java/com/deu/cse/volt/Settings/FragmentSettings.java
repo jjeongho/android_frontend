@@ -97,14 +97,6 @@ public class FragmentSettings extends Fragment {
             }
         });
 
-        inquiry_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), InquiryActivity.class);
-                startActivity(intent);
-            }
-        });
-
         return rootView;
     }
 

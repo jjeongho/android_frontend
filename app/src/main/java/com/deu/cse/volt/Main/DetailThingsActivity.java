@@ -4,10 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import java.util.ArrayList;
 
 import com.deu.cse.volt.R;
 
@@ -19,6 +26,8 @@ public class DetailThingsActivity extends AppCompatActivity implements View.OnCl
     FragmentSell fragmentSell;
     FragmentPurchase fragmentPurchase;
     FragmentDetailThings fragmentDetailThings;
+
+    private LineChart chart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +57,32 @@ public class DetailThingsActivity extends AppCompatActivity implements View.OnCl
         bidding.setOnClickListener(this);
         sell.setOnClickListener(this);
         purchase.setOnClickListener(this);
+
+        chart = findViewById(R.id.detail_chart);
+
+        ArrayList<Entry> values = new ArrayList<>();
+
+        // 그래프 랜덤 값
+        for(int i =0; i<10; i++){
+            float val = (float) (Math.random() * 10);
+            values.add(new Entry(i, val));
+        }
+
+        LineDataSet set1;
+        set1 = new LineDataSet(values, "최근 가격");
+
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(set1);
+
+        LineData data = new LineData(dataSets);
+
+        // 줄 색깔, 포인트 색깔, 배경 색깔
+        set1.setColor(Color.BLUE);
+        set1.setCircleColor(Color.BLUE);
+        chart.setBackgroundColor(Color.WHITE);
+
+
+        chart.setData(data);
     }
 
     @Override
