@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.deu.cse.volt.Main.Bidding.FragmentBidding;
 import com.deu.cse.volt.Main.DetailThings.FragmentDetailThings;
 import com.github.mikephil.charting.charts.LineChart;
 

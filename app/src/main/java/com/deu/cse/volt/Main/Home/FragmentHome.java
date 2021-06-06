@@ -39,7 +39,6 @@ public class FragmentHome extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.home_fragment, container, false);
-        ImageView main_banner_image = (ImageView) rootView.findViewById(R.id.main_banner_image);
         HomeService = RetrofitBearerServiceGenerator.createService(HomeInterface.class);
         loadHomeDTO(rootView);
 
@@ -48,14 +47,6 @@ public class FragmentHome extends Fragment {
 //            String token = getArguments().getString("bearertoken");
 //            Log.e("TOKEN_HOME", token);
 //        }
-
-        main_banner_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), DetailThingsActivity.class);
-                startActivity(intent);
-            }
-        });
         return rootView;
     }
 
@@ -85,7 +76,7 @@ public class FragmentHome extends Fragment {
 
             @Override
             public void onFailure(Call<HomeDTO> call, Throwable t) {
-                Log.d("HomeFragment",t.toString());
+                //Log.d("HomeFragment",t.toString());
             }
         });
 

@@ -63,6 +63,9 @@ public class HomeDTO {
         @SerializedName("created_at")
         private String createdAt;
         @Expose
+        @SerializedName("productPicture")
+        private String productpicture;
+        @Expose
         @SerializedName("shippingPrice")
         private int shippingprice;
         @Expose
@@ -92,6 +95,14 @@ public class HomeDTO {
 
         public void setCreatedAt(String createdAt) {
             this.createdAt = createdAt;
+        }
+
+        public String getProductpicture() {
+            return productpicture;
+        }
+
+        public void setProductpicture(String productpicture) {
+            this.productpicture = productpicture;
         }
 
         public int getShippingprice() {

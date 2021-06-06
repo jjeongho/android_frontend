@@ -1,24 +1,22 @@
 package com.deu.cse.volt.Main;
 
-import com.deu.cse.volt.Login.BearerTokenTemp;
 
 public class ProductNameTemp {
     private static ProductNameTemp productNameTemp = new ProductNameTemp();
-    private String productName;
+    private String product;
+    private ProductNameTemp(){
 
-    public static ProductNameTemp getProductNameTemp() {
+    }
+
+    public static ProductNameTemp getInstance(){
         return productNameTemp;
     }
 
-    public static void setProductNameTemp(ProductNameTemp productNameTemp) {
-        ProductNameTemp.productNameTemp = productNameTemp;
+    public void setProductNameTemp(String product){
+        this.product = product;
     }
 
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public String getProductNameTemp(){
+        return product;
     }
 }
