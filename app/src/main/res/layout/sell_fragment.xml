@@ -480,7 +480,7 @@
                     android:layout_marginTop="16dp"
                     app:srcCompat="@drawable/bg_primary" />
 
-                <RadioButton
+                <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/sell_payment_radiobtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -489,6 +489,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:buttonTint="@color/sell"
                     android:text=" 일반결제"
                     android:textColor="@color/black"
                     android:textSize="14sp"
@@ -518,7 +519,7 @@
                     <ImageView
                         android:id="@+id/sell_voltimage_image"
                         android:layout_width="wrap_content"
-                        android:layout_height="113dp"
+                        android:layout_height="121dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/logo_blue" />
 
@@ -558,6 +559,7 @@
                             android:layout_marginRight="8dp"
                             android:layout_marginBottom="8dp"
                             android:layout_weight="1"
+                            android:layout_marginTop="8dp"
                             android:text="정확한 검수를 위한 시간이 소요되며, 현재 검수는 1차로 AI와 2차로 전문가를 통하여 검수를 진행합니다."
                             android:textColor="@color/blank_text"
                             android:textSize="12sp" />
@@ -574,6 +576,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:buttonTint="@color/sell"
                     android:text="판매 입찰 또는 즉시 판매를 통해 주문 결제가 완료되면 단순 변심이나 실수에 의한 취소가 불가합니다."
                     android:textColor="@color/black"
                     android:textSize="14sp"
@@ -588,6 +591,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:buttonTint="@color/sell"
                     android:text="상품의 검수 기준과 패널티 규정을 정확히 확인하였습니다."
                     android:textColor="@color/black"
                     android:textSize="14sp"
@@ -602,6 +606,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:buttonTint="@color/sell"
                     android:text="판매 상품 발송 시 반드시 충전재, 택배박스를 이용하여 2중 포장하여 발송합니다."
                     android:textColor="@color/black"
                     android:textSize="14sp"
@@ -616,33 +621,24 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:buttonTint="@color/sell"
                     android:text="볼트 구매 약관을 모두 확인했으며 판매에 동의합니다."
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/sell_sell_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="24dp"
+                    app:srcCompat="@drawable/red_box" />
 
             </LinearLayout>
         </ScrollView>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sell_main_layout">
-
-        <ImageView
-            android:id="@+id/sell_sell_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            app:srcCompat="@drawable/red_box" />
-
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
