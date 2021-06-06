@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
 import com.deu.cse.volt.R;
 
+import java.util.EmptyStackException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,6 +52,7 @@ public class FragmentDetailThings extends Fragment {
             @Override
             public void onResponse(Call<DetailThingsDTO> call, Response<DetailThingsDTO> response) {
                 if (response.isSuccessful()) {
+                    Log.e("onResponse",response.body().getData().getResult().get(0).getCreatedAt());
                     mainText.setText(response.body().getData().getResult().get(0).getProductname());
                     mainPrice.setText(Integer.toString(response.body().getData().getResult().get(0).getShippingprice()));
                     brandText.setText(response.body().getData().getResult().get(0).getManufacturer());

@@ -11,7 +11,7 @@ import retrofit2.http.Query;
 public interface DetailThingsInterface {
 
     @GET("product/prd/{productName}")
-    Call<DetailThingsDTO> detailThings(@Path("product") String productName);
+    Call<DetailThingsDTO> detailThings(@Path("productName") String productName);
 
 //    @POST("/user")
 //    Call<Map<String, String>> refreshToken(@Field("refresh_token") String refreshToken);
