@@ -1,12 +1,9 @@
-package com.deu.cse.volt.Main;
+package com.deu.cse.volt.Main.DetailThings;
 
-
-import com.deu.cse.volt.Login.IDsearch.IdSearchDTO;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface DetailThingsInterface {
 

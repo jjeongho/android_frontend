@@ -9,7 +9,7 @@
 
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".Main.FragmentDetailThings">
+    tools:context=".Main.DetailThings.FragmentDetailThings">
 
     <LinearLayout
         android:id="@+id/fragment_container_detail"

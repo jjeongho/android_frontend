@@ -1,6 +1,6 @@
-package com.deu.cse.volt.Main;
+package com.deu.cse.volt.Main.DetailThings;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,9 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
+import com.deu.cse.volt.Main.DetailThings.DetailThingsDTO;
+import com.deu.cse.volt.Main.DetailThings.DetailThingsInterface;
 import com.deu.cse.volt.R;
-
-import java.util.EmptyStackException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,7 +23,8 @@ import retrofit2.Response;
 
 public class FragmentDetailThings extends Fragment {
     private DetailThingsInterface DetailThingsService;
-
+    private Intent intent; //인텐트 선언
+    String modelName;
 
     @Nullable
     @Override
@@ -31,6 +32,7 @@ public class FragmentDetailThings extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.detailthings_fragment, container, false);
         DetailThingsService = RetrofitBearerServiceGenerator.createService(DetailThingsInterface.class);
         loadDetailThingsDTO(rootView);
+
         return rootView;
     }
 
@@ -48,7 +50,9 @@ public class FragmentDetailThings extends Fragment {
         TextView modelText = (TextView) rootView.findViewById(R.id.detail_detailmodelname_text);
         TextView createdText = (TextView) rootView.findViewById(R.id.detail_detailreleasedate_text);
 
-        DetailThingsService.detailThings("갤럭시 S21 ULTRA").enqueue(new Callback<DetailThingsDTO>() {
+        modelName = getActivity().getIntent().getExtras().getString("modelName");//인텐트값가져오기
+
+        DetailThingsService.detailThings(modelName).enqueue(new Callback<DetailThingsDTO>() {
             @Override
             public void onResponse(Call<DetailThingsDTO> call, Response<DetailThingsDTO> response) {
                 if (response.isSuccessful()) {
