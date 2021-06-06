@@ -434,7 +434,7 @@
                     android:layout_marginTop="16dp"
                     app:srcCompat="@drawable/bg_primary" />
 
-                <RadioButton
+                <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/purchase_payment_radiobtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -443,6 +443,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:buttonTint="@color/main"
                     android:text=" 일반결제"
                     android:textColor="@color/black"
                     android:textSize="14sp"
@@ -472,7 +473,7 @@
                     <ImageView
                         android:id="@+id/purchase_voltimage_image"
                         android:layout_width="wrap_content"
-                        android:layout_height="113dp"
+                        android:layout_height="121dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/logo_blue" />
 
@@ -508,6 +509,7 @@
                             android:id="@+id/textView29"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:layout_marginEnd="8dp"
                             android:layout_marginRight="8dp"
                             android:layout_marginBottom="8dp"
@@ -528,6 +530,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:buttonTint="@color/main"
                     android:text="구매 입찰 또는 즉시 구매를 통해 주문 결제가 완료되면 단순 변심이나 실수에 의한 취소가 불가합니다."
                     android:textColor="@color/black"
                     android:textSize="14sp"
@@ -542,6 +545,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:buttonTint="@color/main"
                     android:text="검수 통과된 상품의 교환 및 환불은 불가합니다."
                     android:textColor="@color/black"
                     android:textSize="14sp"
@@ -556,6 +560,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
+                    android:buttonTint="@color/main"
                     android:text="판매자의 판매 거부 및 배송 지연으로 인해 구매가 취소될 수 있습니다."
                     android:textColor="@color/black"
                     android:textSize="14sp"
@@ -570,31 +575,23 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:layout_marginRight="24dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="16dp"
+                    android:buttonTint="@color/main"
                     android:text="볼트 구매 약관을 모두 확인했으며 구매에 동의합니다."
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
+                <ImageView
+                    android:id="@+id/purchase_payment_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="24dp"
+                    app:srcCompat="@drawable/blue_box" />
+
             </LinearLayout>
         </ScrollView>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/purchase_main_layout">
-
-        <ImageView
-            android:id="@+id/purchase_payment_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/pay_btn" />
 
     </LinearLayout>
 
