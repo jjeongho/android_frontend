@@ -17,7 +17,7 @@ import com.deu.cse.volt.Login.IDsearch.IdSearchActivity;
 import com.deu.cse.volt.Login.SignUp.RetrofitSignUpServiceGenerator;
 import com.deu.cse.volt.Login.SignUp.SignUpInterface;
 import com.deu.cse.volt.Login.SignUp.SignupActivity;
-import com.deu.cse.volt.Main.MainActivity;
+import com.deu.cse.volt.Main.Home.MainActivity;
 import com.deu.cse.volt.R;
 
 import retrofit2.Call;

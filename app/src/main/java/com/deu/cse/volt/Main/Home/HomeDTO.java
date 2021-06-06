@@ -1,4 +1,4 @@
-package com.deu.cse.volt.Main;
+package com.deu.cse.volt.Main.Home;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -1,8 +1,7 @@
-package com.deu.cse.volt.Main;
+package com.deu.cse.volt.Main.Home;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.FragmentManager;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.deu.cse.volt.Dibs.FragmentDibs;
-import com.deu.cse.volt.Login.BearerTokenTemp;
 import com.deu.cse.volt.Myinfo.FragmentMyinfo;
 import com.deu.cse.volt.R;
 import com.deu.cse.volt.Search.FragmentSearch;

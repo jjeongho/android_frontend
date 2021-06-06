@@ -8,7 +8,7 @@
     android:layout_gravity="bottom"
 
 
-    tools:context=".Main.MainActivity">
+    tools:context=".Main.Home.MainActivity">
 
     <LinearLayout
         android:id="@+id/fragment_container"

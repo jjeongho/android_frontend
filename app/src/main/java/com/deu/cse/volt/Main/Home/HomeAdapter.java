@@ -1,8 +1,7 @@
-package com.deu.cse.volt.Main;
+package com.deu.cse.volt.Main.Home;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,8 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.deu.cse.volt.Login.BearerTokenTemp;
-import com.deu.cse.volt.Login.IDsearch.IdSearchActivity;
+import com.deu.cse.volt.Main.DetailThingsActivity;
 import com.deu.cse.volt.R;
 
 import java.util.List;

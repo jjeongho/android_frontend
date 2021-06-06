@@ -2,20 +2,16 @@ package com.deu.cse.volt.Settings;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.deu.cse.volt.Main.MainActivity;
 import com.deu.cse.volt.R;
 
 public class FragmentSettings extends Fragment {

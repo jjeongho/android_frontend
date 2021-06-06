@@ -33,7 +33,7 @@
         <activity android:name=".Login.PWDsearchActivity" />
         <activity android:name=".Login.SignUp.SignupActivity" />
         <activity android:name=".Login.IDsearch.IdSearchActivity" />
-        <activity android:name=".Main.MainActivity" />
+        <activity android:name=".Main.Home.MainActivity" />
 
 
     </application>

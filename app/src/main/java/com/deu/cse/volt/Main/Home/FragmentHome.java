@@ -1,4 +1,4 @@
-package com.deu.cse.volt.Main;
+package com.deu.cse.volt.Main.Home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,11 +15,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
-import com.deu.cse.volt.Main.DetailThings.DetailThingsInterface;
+import com.deu.cse.volt.Main.DetailThingsActivity;
+import com.deu.cse.volt.Main.Home.HomeAdapter;
+import com.deu.cse.volt.Main.Home.HomeDTO;
+import com.deu.cse.volt.Main.Home.HomeInterface;
 import com.deu.cse.volt.R;
-import com.deu.cse.volt.Settings.MyinfoModifyActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
