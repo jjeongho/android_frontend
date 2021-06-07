@@ -7,10 +7,12 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <FrameLayout
-        android:id="@+id/search_layout"
+    <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,51 +22,35 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:iconifiedByDefault="false"
-            app:searchIcon="@drawable/big_search"
-            app:queryHint="            제품명,모델번호,브랜드명 등" />
-    </FrameLayout>
+            app:queryHint=" 제품명,모델번호 등"
+            app:searchIcon="@drawable/big_search">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="373dp"
-        android:layout_marginBottom="1dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_layout"
-        app:layout_constraintVertical_bias="0.913">
+        </androidx.appcompat.widget.SearchView>
 
+        <TextView
+            android:id="@+id/popular_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="48dp"
+            android:text="인기 검색어"
+            android:textColor="@color/blank_text" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/search_recyclerView"
+        <LinearLayout
+            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp" />
-    </LinearLayout>
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/popular_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="305dp"
-        android:layout_marginEnd="342dp"
-        android:layout_marginRight="342dp"
-        android:text="인기 검색어"
-        android:textColor="@color/blank_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_layout" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/search_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
