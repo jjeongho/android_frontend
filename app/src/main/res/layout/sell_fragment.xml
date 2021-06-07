@@ -77,6 +77,7 @@
                         android:layout_marginLeft="24dp"
                         android:layout_marginEnd="24dp"
                         android:layout_marginRight="24dp"
+                        android:gravity="center_vertical"
                         android:orientation="vertical">
 
                         <TextView
@@ -84,7 +85,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="24dp"
-                            android:layout_marginTop="48dp"
                             android:text="iPad Air 스카이블루"
                             android:textColor="@color/black"
                             android:textSize="16sp"
@@ -638,13 +638,40 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/sell_sell_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="24dp"
-                    app:srcCompat="@drawable/red_box" />
+                    android:layout_marginBottom="24dp">
+
+                    <ImageView
+                        android:id="@+id/sell_sell_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/red_box" />
+
+                    <TextView
+                        android:id="@+id/sell_sellprice_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/sell_sell_btn"
+                        android:layout_alignTop="@+id/sell_sell_btn"
+                        android:layout_alignRight="@+id/sell_sell_btn"
+                        android:layout_alignBottom="@+id/sell_sell_btn"
+                        android:gravity="center"
+                        android:text="&#65510; 809,000 결제하기"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
 
             </LinearLayout>
         </ScrollView>
