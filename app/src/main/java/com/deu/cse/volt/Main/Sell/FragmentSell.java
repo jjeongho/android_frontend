@@ -1,5 +1,6 @@
 package com.deu.cse.volt.Main.Sell;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
@@ -20,6 +22,8 @@ import com.deu.cse.volt.Main.DetailThings.DetailThingsInterface;
 import com.deu.cse.volt.Main.Home.HomeInterface;
 import com.deu.cse.volt.Main.ProductNameTemp;
 import com.deu.cse.volt.R;
+
+import java.time.LocalDate;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -59,6 +63,7 @@ public class FragmentSell extends Fragment {
 
 
         SellStartService.sell(ProductNameTemp.getInstance().getProductNameTemp()).enqueue(new Callback<SellDTO>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(Call<SellDTO> call, Response<SellDTO> response) {
                 if (response.isSuccessful()) {
@@ -66,12 +71,17 @@ public class FragmentSell extends Fragment {
                     Glide.with(rootView).load(response.body().getData().getResult().getProductpicture()).into(sellImage);
                     sellImageText.setText(response.body().getData().getResult().getProductname());
                     sellImageModelText.setText(response.body().getData().getResult().getModelname());
+                    hopeBuyPrice.setText(Integer.toString(response.body().getData().getResult().getShippingprice())+"  원");
+                    PaymentText.setText(Integer.toString(response.body().getData().getResult().getShippingprice())+"  원");
+                    seekBar.setMax(100);
                     seekBar.setProgress(response.body().getData().getResult().getShippingprice());
+
                     seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                     @Override//볼륨은 조절해도되지만 화면조절은 버벅될 우려가 있음
                     public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                        hopeBuyPrice.setText(+seekBar.getProgress() + "0,000  원");
-                        PaymentText.setText(+seekBar.getProgress() + "0,000  원");
+                        hopeBuyPrice.setText(+seekBar.getProgress() + "  원");
+                        PaymentText.setText(+seekBar.getProgress() + "  원");
+                        LocalDate.now().minusDays(1);
                     }
                     @Override
                     public void onStartTrackingTouch(SeekBar seekBar) {
