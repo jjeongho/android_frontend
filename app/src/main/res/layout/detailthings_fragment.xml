@@ -25,14 +25,14 @@
 
             <ImageView
                 android:id="@+id/detail_back_image"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginLeft="24dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginBottom="24dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/chevron_left" />
+                app:srcCompat="@drawable/arrow_narrow_left_black" />
 
             <ImageView
                 android:id="@+id/detail_blank"
@@ -46,7 +46,7 @@
                 android:id="@+id/detail_dibs_image"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="36dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
@@ -56,7 +56,7 @@
                 android:id="@+id/detail_bookmark_image"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="36dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginRight="24dp"
                 android:layout_weight="1"

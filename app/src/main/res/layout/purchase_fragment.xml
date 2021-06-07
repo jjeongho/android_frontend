@@ -14,18 +14,18 @@
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/chevron_left" />
+        app:srcCompat="@drawable/arrow_narrow_left_black" />
 
     <TextView
         android:id="@+id/purchase_main_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:text="구매하기"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -37,7 +37,7 @@
     <LinearLayout
         android:id="@+id/purchase_main_layout"
         android:layout_width="match_parent"
-        android:layout_height="630dp"
+        android:layout_height="720dp"
         android:layout_marginTop="24dp"
         android:background="@color/white"
         android:orientation="vertical"
@@ -48,7 +48,7 @@
         <ScrollView
             android:id="@+id/purchase_scrollview"
             android:layout_width="match_parent"
-            android:layout_height="630dp">
+            android:layout_height="720dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -62,8 +62,8 @@
 
                     <ImageView
                         android:id="@+id/purchase_mainpicture_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginLeft="24dp"
                         tools:srcCompat="@tools:sample/avatars" />
@@ -75,25 +75,28 @@
                         android:layout_marginLeft="24dp"
                         android:layout_marginEnd="24dp"
                         android:layout_marginRight="24dp"
+                        android:gravity="center_vertical"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/purchase_nemestuff_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="24dp"
+                            android:layout_marginLeft="24dp"
                             android:text="iPad Air 스카이블루"
                             android:textColor="@color/black"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
-                        <Spinner
-                            android:id="@+id/purchase_spinner"
-                            android:layout_width="150dp"
+                        <TextView
+                            android:id="@+id/purchase_modeltuff_text"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="16dp" />
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginTop="8dp"
+                            android:text="64GB"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -101,11 +104,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginTop="40dp"
-                    android:layout_marginEnd="24dp"
-                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="32dp"
+                    android:background="@color/gray"
                     android:orientation="horizontal">
 
                     <TextView
@@ -113,6 +113,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="32dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="최소 입찰가"
@@ -124,7 +127,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="32dp"
                         android:layout_marginRight="16dp"
                         android:layout_weight="1"
                         android:gravity="center"
@@ -138,7 +142,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="32dp"
                         android:layout_marginLeft="16dp"
                         android:layout_weight="1"
                         android:gravity="center"
@@ -151,6 +156,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="32dp"
+                        android:layout_marginRight="24dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="&#65510; 749,000"
@@ -582,14 +590,38 @@
                     android:textSize="14sp"
                     android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/purchase_payment_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="24dp"
-                    app:srcCompat="@drawable/blue_box" />
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="24dp">
 
+                    <ImageView
+                        android:id="@+id/purchase_payment_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/blue_box" />
+
+                    <TextView
+                        android:id="@+id/bidding_purchase_price_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/purchase_payment_btn"
+                        android:layout_alignTop="@+id/purchase_payment_btn"
+                        android:layout_alignRight="@+id/purchase_payment_btn"
+                        android:layout_alignBottom="@+id/purchase_payment_btn"
+                        android:gravity="center"
+                        android:text="&#65510; 809,000 결제하기"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
             </LinearLayout>
         </ScrollView>
 
