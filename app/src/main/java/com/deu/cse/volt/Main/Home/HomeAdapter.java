@@ -7,12 +7,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.deu.cse.volt.Login.BearerTokenTemp;
 import com.deu.cse.volt.Main.DetailThingsActivity;
 import com.deu.cse.volt.Main.ProductNameTemp;
@@ -42,8 +44,11 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         holder.modelPrice.setText(String.valueOf(HomeList.get(position).getShippingprice())+"원");
         holder.modelCreated.setText(String.valueOf(HomeList.get(position).getCreatedAt()));
         holder.itemView.setTag(position); //커스텀 리스트 뷰의 각각의 리스트를 의미
+        Glide.with(context).load(HomeList.get(position).getProductpicture()).into(holder.modelImage);
 
-        //리스트 클릭 이벤트
+//        String imageStr = "http://도메인주소/image/abc.png";
+//        Glide.with(this).load(imageStr).into(imageView1);
+//        리스트 클릭 이벤트
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,7 +76,9 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         TextView modelName;
         TextView modelPrice;
         TextView modelCreated;
+        ImageView modelImage;
         LinearLayout click;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,6 +87,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
             modelName = (TextView)itemView.findViewById(R.id.home_re_name_text);
             modelPrice = (TextView)itemView.findViewById(R.id.home_re_price_text);
             modelCreated = (TextView)itemView.findViewById(R.id.home_re_sale_text);
+            modelImage = (ImageView)itemView.findViewById(R.id.profile_img);
 
         }
     }

@@ -63,10 +63,11 @@
                 <ImageView
                     android:id="@+id/main_mainimage_image"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="216dp"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <LinearLayout
+                    android:id="@+id/main_banner_layout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -78,26 +79,26 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/textView6"
+                            android:id="@+id/main_imagebrand_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_weight="1"
                             android:fontFamily="sans-serif"
                             android:gravity="center_vertical"
+                            android:text="Apple"
                             android:textColor="@color/black"
-                            android:layout_marginTop="20dp"
-                            android:layout_marginLeft="24dp"
                             android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:layout_weight="1"
-                            android:text="Apple" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/main_imagetext_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
                             android:layout_weight="1"
                             android:fontFamily="sans-serif"
-                            android:layout_marginLeft="24dp"
                             android:gravity="center_vertical"
                             android:textColor="@color/black"
                             android:textSize="14sp"
@@ -106,7 +107,7 @@
                     </LinearLayout>
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/main_timetext_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

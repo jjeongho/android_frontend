@@ -6,12 +6,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
 import com.deu.cse.volt.Main.DetailThings.DetailThingsDTO;
 import com.deu.cse.volt.Main.DetailThings.DetailThingsInterface;
@@ -49,6 +51,8 @@ public class FragmentDetailThings extends Fragment {
         TextView brandText = (TextView) rootView.findViewById(R.id.detail_detailbrand_text);
         TextView modelText = (TextView) rootView.findViewById(R.id.detail_detailmodelname_text);
         TextView createdText = (TextView) rootView.findViewById(R.id.detail_detailreleasedate_text);
+        ImageView mainImage = (ImageView) rootView.findViewById(R.id.detail_main_image);
+
 
         modelName = getActivity().getIntent().getExtras().getString("modelName");//인텐트값가져오기
 
@@ -62,6 +66,8 @@ public class FragmentDetailThings extends Fragment {
                     brandText.setText(response.body().getData().getResult().get(0).getManufacturer());
                     modelText.setText(response.body().getData().getResult().get(0).getModelname());
                     createdText.setText(response.body().getData().getResult().get(0).getCreatedAt());
+                    Glide.with(rootView).load(response.body().getData().getResult().get(0).getProductpicture()).into(mainImage);
+
                 }
                 else{
                     Log.d("REST FAILED MESSAGE", response.body().getResponsemessage());

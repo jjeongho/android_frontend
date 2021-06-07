@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.deu.cse.volt.Main.FragmentPurchase;
@@ -44,10 +45,10 @@ public class BiddingSellAdapter extends RecyclerView.Adapter<BiddingSellAdapter.
             public void onClick(View v) {
                 String BiddingModel = holder.BiddingModel.getText().toString();
                 Intent intent = new Intent(v.getContext(), FragmentSell.class);
-                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("BiddingModel",BiddingModel);
                 Log.e("Bidding",intent.toString());
-                v.getContext().startActivity(intent);
+                context.startActivity(intent);
+
             }
         });
     }
