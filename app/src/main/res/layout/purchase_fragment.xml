@@ -262,7 +262,7 @@
                         android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/purchase_shippingtext_text1"
+                        android:id="@+id/purchase_shippingtext_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="8dp"
@@ -274,7 +274,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/purchase_exception_text"
+                    android:id="@+id/bidding_sell_exception_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="32dp"
