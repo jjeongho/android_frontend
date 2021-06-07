@@ -14,18 +14,18 @@
         android:layout_height="32dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/chevron_left" />
+        app:srcCompat="@drawable/arrow_narrow_left_black" />
 
     <TextView
         android:id="@+id/purchase_main_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:text="구매하기"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -37,7 +37,7 @@
     <LinearLayout
         android:id="@+id/purchase_main_layout"
         android:layout_width="match_parent"
-        android:layout_height="630dp"
+        android:layout_height="720dp"
         android:layout_marginTop="24dp"
         android:background="@color/white"
         android:orientation="vertical"
