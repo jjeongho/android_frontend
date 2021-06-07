@@ -70,11 +70,10 @@ public class FragmentDetailThings extends Fragment {
 
                 }
                 else{
-                    Log.d("REST FAILED MESSAGE", response.body().getResponsemessage());
+                    //Log.d("REST FAILED MESSAGE", response.body().getResponsemessage());
 
                 }
             }
-
 
             @Override
             public void onFailure(Call<DetailThingsDTO> call, Throwable t) {

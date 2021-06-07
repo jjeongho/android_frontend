@@ -67,9 +67,9 @@
 
                     <ImageView
                         android:id="@+id/bidding_purchase_main_image"
-                        tools:srcCompat="@tools:sample/avatars"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        tools:srcCompat="@tools:sample/avatars" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

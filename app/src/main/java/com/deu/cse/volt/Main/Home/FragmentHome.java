@@ -74,7 +74,7 @@ public class FragmentHome extends Fragment {
                     priceText.setText(Integer.toString(response.body().getData().getResult().get(0).getShippingprice()));
                     Glide.with(rootView).load(response.body().getData().getResult().get(0).getProductpicture()).into(mainImage);
                 }else{
-                    Log.e("onfailed",response.body().getData().getResult().toString());
+//                    Log.e("onfailed",response.body().getData().getResult().toString());
 
                 }
             }
@@ -102,7 +102,7 @@ public class FragmentHome extends Fragment {
                     recyclerView.setAdapter(homeAdapter);
                 }
                 else{
-                    Log.e("onfailed",response.body().getData().getResult().toString());
+//                    Log.e("onfailed",response.body().getData().getResult().toString());
                 }
             }
 

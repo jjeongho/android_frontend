@@ -11,10 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.deu.cse.volt.Main.DetailThingsActivity;
-import com.deu.cse.volt.Main.FragmentPurchase;
+import com.deu.cse.volt.Main.Bidding.BiddingStatus.BiddingPurchaseActivity;
 import com.deu.cse.volt.R;
-import com.deu.cse.volt.Settings.MyinfoModifyActivity;
 
 import java.util.List;
 
@@ -45,10 +43,10 @@ public class BiddingBuyAdapter extends RecyclerView.Adapter<BiddingBuyAdapter.Bu
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                  String BiddingModel = holder.BiddingModel.getText().toString();
+                  String getPosition = holder.BiddingPrice.getText().toString();
                   Intent intent;
-                  intent = new Intent(context, FragmentPurchase.class);
-                  intent.putExtra("BiddingModel",BiddingModel);
+                  intent = new Intent(context, BiddingPurchaseActivity.class);
+                  intent.putExtra("Buy",getPosition);
                   v.getContext().startActivity(intent);
                   Log.e("Bidding",intent.toString());
 

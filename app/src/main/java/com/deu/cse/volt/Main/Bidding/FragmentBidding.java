@@ -52,7 +52,7 @@ public class FragmentBidding extends Fragment {
         BiddingService.bidding(ProductNameTemp.getInstance().getProductNameTemp()).enqueue(new Callback<BiddingDTO>() {
             @Override
             public void onResponse(Call<BiddingDTO> call, Response<BiddingDTO> response) {
-                if (response.isSuccessful()) {
+                if (response != null && response.body() != null && response.isSuccessful()) {
                     BiddingSellList = response.body().getData().getSell();
                     biddingSellAdapter = new BiddingSellAdapter(getContext(),BiddingSellList);
                     recyclerView.setAdapter(biddingSellAdapter);
@@ -76,7 +76,7 @@ public class FragmentBidding extends Fragment {
         BiddingService.bidding(ProductNameTemp.getInstance().getProductNameTemp()).enqueue(new Callback<BiddingDTO>() {
             @Override
             public void onResponse(Call<BiddingDTO> call, Response<BiddingDTO> response) {
-                if (response.isSuccessful()) {
+                if (response != null && response.body() != null && response.isSuccessful() ) {
                     BiddingBuyList = response.body().getData().getBuy();
                     biddingBuyAdapter = new BiddingBuyAdapter(getContext(),BiddingBuyList);
                     recyclerView.setAdapter(biddingBuyAdapter);
