@@ -9,11 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.deu.cse.volt.Main.FragmentPurchase;
-import com.deu.cse.volt.Main.FragmentSell;
+import com.deu.cse.volt.Main.Sell.FragmentSell;
 import com.deu.cse.volt.R;
 
 import java.util.List;

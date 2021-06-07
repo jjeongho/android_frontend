@@ -59,12 +59,14 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:background="@color/blank"
+                    >
 
                     <ImageView
                         android:id="@+id/sell_mainpicture_image"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginLeft="24dp"
                         tools:srcCompat="@tools:sample/avatars" />
@@ -82,19 +84,22 @@
                             android:id="@+id/sell_nemestuff_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="24dp"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginTop="48dp"
                             android:text="iPad Air 스카이블루"
                             android:textColor="@color/black"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
-                        <Spinner
-                            android:id="@+id/spinner"
-                            android:layout_width="150dp"
+                        <TextView
+                            android:id="@+id/sell_modeltuff_text"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginTop="16dp" />
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            android:layout_marginLeft="24dp"
+                            android:layout_marginTop="8dp"
+                            android:text="64GB" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -380,7 +385,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/chevron_right" />
+                        app:srcCompat="@drawable/chevron_right_red" />
                 </LinearLayout>
 
 
@@ -432,7 +437,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/chevron_right" />
+                        app:srcCompat="@drawable/chevron_right_red" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -470,7 +475,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_weight="1"
-                        app:srcCompat="@drawable/chevron_down" />
+                        app:srcCompat="@drawable/chevron_up_red" />
                 </LinearLayout>
 
                 <ImageView
@@ -501,7 +506,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="36dp"
                     android:layout_marginTop="8dp"
-                    app:srcCompat="@drawable/solid" />
+                    app:srcCompat="@drawable/solid_red" />
 
                 <ImageView
                     android:id="@+id/sell_line4"

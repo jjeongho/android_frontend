@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.deu.cse.volt.Main.Bidding.FragmentBidding;
 import com.deu.cse.volt.Main.DetailThings.FragmentDetailThings;
+import com.deu.cse.volt.Main.Sell.FragmentSell;
 import com.github.mikephil.charting.charts.LineChart;
 
 import com.deu.cse.volt.R;
