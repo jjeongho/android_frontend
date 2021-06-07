@@ -85,7 +85,7 @@
                             android:layout_marginTop="32dp"
                             android:text="iPhone 12 PRO"
                             android:textColor="@color/black"
-                            android:textSize="16sp" />
+                            android:textSize="18sp" />
 
                         <TextView
                             android:id="@+id/bidding_purchase_detail_text"
@@ -96,7 +96,7 @@
                             android:layout_marginTop="16dp"
                             android:text="64GB"
                             android:textColor="@color/black"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:textStyle="" />
 
                     </LinearLayout>

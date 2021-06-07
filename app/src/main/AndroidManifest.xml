@@ -2,15 +2,19 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.deu.cse.volt">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.Volt">
-        <activity android:name=".Main.DetailThingsActivity"></activity>
+        android:theme="@style/Theme.Volt"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Main.Bidding.BiddingPurchaseActivity"></activity>
+        <activity android:name=".Main.Bidding.BiddingSellActivity" />
+        <activity android:name=".Main.DetailThingsActivity" />
         <activity android:name=".Settings.QnaActivity" />
         <activity android:name=".Settings.AgreeActivity" />
         <activity android:name=".Settings.SecurityActivity" />
@@ -34,9 +38,6 @@
         <activity android:name=".Login.SignUp.SignupActivity" />
         <activity android:name=".Login.IDsearch.IdSearchActivity" />
         <activity android:name=".Main.Home.MainActivity" />
-
-
-
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>
