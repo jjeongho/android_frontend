@@ -55,68 +55,71 @@ public class SellDTO {
 
     public static class Result {
         @Expose
-        @SerializedName("updated_at")
-        private String updatedAt;
+        @SerializedName("localDate")
+        private String localdate;
         @Expose
-        @SerializedName("created_at")
-        private String createdAt;
+        @SerializedName("transactionCount")
+        private int transactioncount;
         @Expose
-        @SerializedName("productPicture")
-        private String productpicture;
+        @SerializedName("avgPrice")
+        private int avgprice;
         @Expose
-        @SerializedName("shippingPrice")
-        private int shippingprice;
+        @SerializedName("highestPrice")
+        private int highestprice;
         @Expose
-        @SerializedName("manufacturer")
-        private String manufacturer;
+        @SerializedName("lowestPrice")
+        private int lowestprice;
         @Expose
         @SerializedName("modelName")
         private String modelname;
         @Expose
-        @SerializedName("productName")
-        private String productname;
+        @SerializedName("dailyStatisticsIdx")
+        private int dailystatisticsidx;
         @Expose
-        @SerializedName("productId")
-        private int productid;
+        @SerializedName("updatedAt")
+        private String updatedat;
+        @Expose
+        @SerializedName("createdAt")
+        private String createdat;
 
-        public String getUpdatedAt() {
-            return updatedAt;
+        public String getLocaldate() {
+            return localdate;
         }
 
-        public void setUpdatedAt(String updatedAt) {
-            this.updatedAt = updatedAt;
+        public void setLocaldate(String localdate) {
+            this.localdate = localdate;
         }
 
-        public String getCreatedAt() {
-            return createdAt;
+        public int getTransactioncount() {
+            return transactioncount;
         }
 
-        public void setCreatedAt(String createdAt) {
-            this.createdAt = createdAt;
+        public void setTransactioncount(int transactioncount) {
+            this.transactioncount = transactioncount;
         }
 
-        public String getProductpicture() {
-            return productpicture;
+        public int getAvgprice() {
+            return avgprice;
         }
 
-        public void setProductpicture(String productpicture) {
-            this.productpicture = productpicture;
+        public void setAvgprice(int avgprice) {
+            this.avgprice = avgprice;
         }
 
-        public int getShippingprice() {
-            return shippingprice;
+        public int getHighestprice() {
+            return highestprice;
         }
 
-        public void setShippingprice(int shippingprice) {
-            this.shippingprice = shippingprice;
+        public void setHighestprice(int highestprice) {
+            this.highestprice = highestprice;
         }
 
-        public String getManufacturer() {
-            return manufacturer;
+        public int getLowestprice() {
+            return lowestprice;
         }
 
-        public void setManufacturer(String manufacturer) {
-            this.manufacturer = manufacturer;
+        public void setLowestprice(int lowestprice) {
+            this.lowestprice = lowestprice;
         }
 
         public String getModelname() {
@@ -127,20 +130,28 @@ public class SellDTO {
             this.modelname = modelname;
         }
 
-        public String getProductname() {
-            return productname;
+        public int getDailystatisticsidx() {
+            return dailystatisticsidx;
         }
 
-        public void setProductname(String productname) {
-            this.productname = productname;
+        public void setDailystatisticsidx(int dailystatisticsidx) {
+            this.dailystatisticsidx = dailystatisticsidx;
         }
 
-        public int getProductid() {
-            return productid;
+        public String getUpdatedat() {
+            return updatedat;
         }
 
-        public void setProductid(int productid) {
-            this.productid = productid;
+        public void setUpdatedat(String updatedat) {
+            this.updatedat = updatedat;
+        }
+
+        public String getCreatedat() {
+            return createdat;
+        }
+
+        public void setCreatedat(String createdat) {
+            this.createdat = createdat;
         }
     }
 }

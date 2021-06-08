@@ -10,14 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
+import com.deu.cse.volt.Main.Home.HomeInterface;
 import com.deu.cse.volt.R;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class FragmentMyinfo extends Fragment {
+    private MyinfoInterface MyinfoService;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.myinfo_fragment, container, false);
+        MyinfoService = RetrofitBearerServiceGenerator.createService(MyinfoInterface.class);
 
         if(getArguments() != null) { // bearertoken 받아오기
             String token = getArguments().getString("bearertoken");
@@ -34,4 +42,20 @@ public class FragmentMyinfo extends Fragment {
 
 
     }
+
+//    public void loadInfo(){
+//
+//        MyinfoService.myInfo().enqueue(new Callback<UserIdDTO>() {
+//            @Override
+//            public void onResponse(Call<UserIdDTO> call, Response<UserIdDTO> response) {
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<UserIdDTO> call, Throwable t) {
+//
+//            }
+//        });
+//    }
+
 }

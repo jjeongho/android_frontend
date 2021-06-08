@@ -23,29 +23,12 @@ import java.util.ArrayList;
 public class FragmentSearch extends Fragment {
     private RecyclerView recyclerView;
     private SearchAdapter adapter;
-    private ArrayList<SearchItem> list = new ArrayList<>();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.search_fragment, container, false);
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.search_recyclerView);
 
-        if(getArguments() != null) { // bearertoken 받아오기
-            String token = getArguments().getString("bearertoken");
-            Log.e("TOKEN_SEARCH", token);
-
-        }
-
-
-        list = SearchItem.createContactsList(5);
-        recyclerView.setHasFixedSize(true);
-        adapter = new SearchAdapter(getActivity(), list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
-        recyclerView.addItemDecoration(new DividerItemDecoration(rootView.getContext(), 1));
         return rootView;
     }
 

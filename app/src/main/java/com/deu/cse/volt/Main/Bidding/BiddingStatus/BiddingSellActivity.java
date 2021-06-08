@@ -50,6 +50,11 @@ public class BiddingSellActivity extends AppCompatActivity {
                 tradeVO.setModelName(ProductNameTemp.getInstance().getProductNameTemp());
                 loadOrder(new TradeVO("BUY","S",ProductNameTemp.getInstance().getProductNameTemp(),tradeVO.getOrderPrice()));
                 Log.e("bidding",tradeVO.getModelName()+tradeVO.getOrderPrice()+tradeVO.getOrderType()+tradeVO.getProductGrade());
+
+                Intent intent = new Intent(getApplicationContext() , MainActivity.class);
+                startActivity(intent);
+                finish();
+
             }
         });
 
@@ -74,7 +79,8 @@ public class BiddingSellActivity extends AppCompatActivity {
 
                     productPrice.setText(Integer.toString(Integer.parseInt(modelPrice))+" 원");
                     totalPrice.setText(Integer.toString(Integer.parseInt(modelPrice))+"  원");
-                    tradeVO.setOrderPrice(Integer.toString(Integer.parseInt(modelPrice)));
+                    tradeVO.setOrderPrice(Integer.parseInt(modelPrice));
+
                     Log.e("bidding",response.body().getData().getSell().get(0).getModelname());
 
                 }else{
@@ -114,15 +120,13 @@ public class BiddingSellActivity extends AppCompatActivity {
     }
 
     public void loadOrder(TradeVO tradeVO){
-        BiddingTradeService.trade(tradeVO.getOrderType(),tradeVO.getProductGrade(),tradeVO.getModelName(),tradeVO.getOrderPrice())
+        BiddingTradeService.trade(tradeVO)
                 .enqueue(new Callback<TradeDTO>() {
             @Override
             public void onResponse(Call<TradeDTO> call, Response<TradeDTO> response) {
                 if(response != null && response.body() != null && response.isSuccessful()) {
                     Toast.makeText(getApplicationContext(),response.body().getResponsemessage(),Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(), DetailThingsActivity.class);
-                    startActivity(intent);
-                    finish();
+
                 }else{
                     String msg = "이미 등록이 되었거나, 처리된 상품입니다.";
                     //Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();

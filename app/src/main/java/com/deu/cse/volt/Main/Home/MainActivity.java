@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         //프래그먼트 전환//
         token = getIntent().getStringExtra("Data");
-        Log.e("TOKEN_TEST", token);
+        //Log.e("TOKEN_TEST", token);
         manager = getSupportFragmentManager();
 
         TextView home = findViewById(R.id.home_btn);

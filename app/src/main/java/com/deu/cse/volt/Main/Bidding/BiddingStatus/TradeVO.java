@@ -4,9 +4,9 @@ public class TradeVO {
     private String orderType;
     private String productGrade;
     private String modelName;
-    private String orderPrice;
+    private int orderPrice;
 
-    public TradeVO(String orderType,String productGrade,String modelName, String orderPrice){
+    public TradeVO(String orderType,String productGrade,String modelName, int orderPrice){
         this.orderType = orderType;
         this.productGrade = productGrade;
         this.modelName = modelName;
@@ -41,11 +41,11 @@ public class TradeVO {
         this.modelName = modelName;
     }
 
-    public String getOrderPrice() {
+    public int getOrderPrice() {
         return orderPrice;
     }
 
-    public void setOrderPrice(String orderPrice) {
+    public void setOrderPrice(int orderPrice) {
         this.orderPrice = orderPrice;
     }
 }

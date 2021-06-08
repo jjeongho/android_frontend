@@ -16,6 +16,7 @@ import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
 import com.deu.cse.volt.Main.Bidding.BiddingDTO;
 import com.deu.cse.volt.Main.Bidding.BiddingInterface;
 import com.deu.cse.volt.Main.DetailThingsActivity;
+import com.deu.cse.volt.Main.Home.MainActivity;
 import com.deu.cse.volt.Main.ProductNameTemp;
 import com.deu.cse.volt.R;
 
@@ -34,7 +35,7 @@ public class BiddingPurchaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bidding_purchase);
         BiddingService = RetrofitBearerServiceGenerator.createService(BiddingInterface.class);
-        ProductService = RetrofitBearerServiceGenerator.createService((ProductInterface.class));
+        ProductService = RetrofitBearerServiceGenerator.createService(ProductInterface.class);
         BiddingTradeService = RetrofitBearerServiceGenerator.createService(BiddingTradeInterface.class);
         ImageView submit = findViewById(R.id.bidding_purchase_purchase_btn);
         TradeVO tradeVO = loadBidding();
@@ -50,6 +51,9 @@ public class BiddingPurchaseActivity extends AppCompatActivity {
                 tradeVO.setModelName(ProductNameTemp.getInstance().getProductNameTemp());
                 loadOrder(new TradeVO("SELL","S",ProductNameTemp.getInstance().getProductNameTemp(),tradeVO.getOrderPrice()));
                 Log.e("bidding",tradeVO.getModelName()+tradeVO.getOrderPrice()+tradeVO.getOrderType()+tradeVO.getProductGrade());
+                Intent intent = new Intent(getApplicationContext() , MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -70,10 +74,13 @@ public class BiddingPurchaseActivity extends AppCompatActivity {
                     modelName.setText(response.body().getData().getBuy().get(0).getModelname());
                     productPrice.setText(Integer.toString(Integer.parseInt(modelPrice))+" 원");
                     totalPrice.setText(Integer.toString(Integer.parseInt(modelPrice))+"  원");
-                    tradeVO.setOrderPrice(Integer.toString(Integer.parseInt(modelPrice)));
+                    tradeVO.setOrderPrice(Integer.parseInt(modelPrice));
+                    Toast.makeText(getApplicationContext(),response.body().getResponsemessage().toString(), Toast.LENGTH_SHORT).show();
+
+
                     Log.e("bidding",response.body().getData().getBuy().get(0).getModelname());
                 }else{
-                    Log.e("bidding",response.body().getData().getBuy().get(0).getModelname());
+                    Log.e("bidding",response.body().getResponsemessage());
                 }
             }
 
@@ -108,15 +115,13 @@ public class BiddingPurchaseActivity extends AppCompatActivity {
     }
 
     public void loadOrder(TradeVO tradeVO){
-        BiddingTradeService.trade(tradeVO.getOrderType(),tradeVO.getProductGrade(),tradeVO.getModelName(),tradeVO.getOrderPrice())
+        BiddingTradeService.trade(tradeVO)
                 .enqueue(new Callback<TradeDTO>() {
                     @Override
                     public void onResponse(Call<TradeDTO> call, Response<TradeDTO> response) {
                         if(response != null && response.body() != null && response.isSuccessful()) {
                             Toast.makeText(getApplicationContext(),response.body().getResponsemessage(),Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(getApplicationContext(), DetailThingsActivity.class);
-                            startActivity(intent);
-                            finish();
+
                         }else{
                             String msg = "이미 등록이 되었거나, 처리된 상품입니다.";
                             //Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
@@ -130,4 +135,5 @@ public class BiddingPurchaseActivity extends AppCompatActivity {
                     }
                 });
     }
+
 }

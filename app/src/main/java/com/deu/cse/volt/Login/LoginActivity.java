@@ -113,8 +113,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }*/
 
-    public void loadLoginDTO(LoginVO loginVO) {
-
+    public LoginVO loadLoginDTO(LoginVO loginVO) {
         loginService.getToken(loginVO.getUsername(), loginVO.getPassword(), loginVO.getGrant_type()).enqueue(new Callback<LoginDTO>() {
             @Override
             public void onResponse(Call<LoginDTO> call, Response<LoginDTO> response) {
@@ -125,6 +124,9 @@ public class LoginActivity extends AppCompatActivity {
 
                     BearerTokenTemp bt = BearerTokenTemp.getInstance(); // bearertokentemp 클래스에 저장
                     bt.setBearerToken(temp);
+
+
+
                     Intent intent = new Intent(getApplicationContext() ,MainActivity.class);
                     intent.putExtra("Data", temp);
                     startActivity(intent);
@@ -146,7 +148,7 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("REST ERROR!", t.getMessage());
             }
         });
-
+        return loginVO;
     }
 
 }

@@ -29,8 +29,16 @@ public class SignupActivity extends AppCompatActivity {
         EditText id_edit = findViewById(R.id.signup_id_edittext);
         EditText pw_edit = findViewById(R.id.signup_pw_edittext);
         EditText email_edit = findViewById(R.id.signup_email_edittext);
+        ImageView back_btn = findViewById(R.id.signup_back_image);
 
-
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

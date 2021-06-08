@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
 import com.deu.cse.volt.Login.LoginActivity;
+import com.deu.cse.volt.Login.SignUp.SignupActivity;
 import com.deu.cse.volt.R;
 
 import retrofit2.Call;
@@ -28,10 +29,22 @@ public class IdSearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_idsearch);
 
         IdSearchService = RetrofitIDsearchServiceGenerator.createService(IdSearchInterface.class);
-
+        ImageView back_btn = findViewById(R.id.imageBack);
         ImageView button = findViewById(R.id.idsearch_confirm_button);
         EditText email_edit = findViewById(R.id.idsearch_email_edittext);
         tv = findViewById(R.id.text_output);
+
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

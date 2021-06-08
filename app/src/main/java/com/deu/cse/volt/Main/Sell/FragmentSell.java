@@ -1,5 +1,6 @@
 package com.deu.cse.volt.Main.Sell;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,9 +19,15 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
+import com.deu.cse.volt.Main.Bidding.BiddingDTO;
+import com.deu.cse.volt.Main.Bidding.BiddingInterface;
+import com.deu.cse.volt.Main.Bidding.BiddingStatus.BiddingTradeInterface;
+import com.deu.cse.volt.Main.Bidding.BiddingStatus.TradeDTO;
+import com.deu.cse.volt.Main.Bidding.BiddingStatus.TradeVO;
 import com.deu.cse.volt.Main.DetailThings.DetailThingsDTO;
 import com.deu.cse.volt.Main.DetailThings.DetailThingsInterface;
 import com.deu.cse.volt.Main.Home.HomeInterface;
+import com.deu.cse.volt.Main.Home.MainActivity;
 import com.deu.cse.volt.Main.ProductNameTemp;
 import com.deu.cse.volt.R;
 
@@ -32,17 +40,61 @@ import retrofit2.Response;
 public class FragmentSell extends Fragment {
     String modelName;
     private SellStartInterface SellStartService;
+    private ProductModelInterface productModelService;
+    private BiddingTradeInterface BiddingTradeService;
+    SeekBar seekBar;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.sell_fragment, container, false);
-
+        TextView submit = rootView.findViewById(R.id.sell_sellprice_text);
+        seekBar =  (SeekBar)rootView.findViewById(R.id.sell_seekbar);
         SellStartService = RetrofitBearerServiceGenerator.createService(SellStartInterface.class);
-        loadStartSell(rootView);
+        productModelService = RetrofitBearerServiceGenerator.createService(ProductModelInterface.class);
+        BiddingTradeService = RetrofitBearerServiceGenerator.createService(BiddingTradeInterface.class);
+        TextView hopeBuyPrice = (TextView)rootView.findViewById(R.id.sell_hopebuyprice_text);
+        TextView PaymentText = (TextView)rootView.findViewById(R.id.sell_paymenttext_text);
+        TradeVO tradeVO = loadStartSell(rootView);
+        loadImage(rootView);
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override//볼륨은 조절해도되지만 화면조절은 버벅될 우려가 있음
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                hopeBuyPrice.setText(+seekBar.getProgress() + "  원");
+                PaymentText.setText(+seekBar.getProgress() + "  원");
+                submit.setText(+seekBar.getProgress() + "  원");
+
+
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //display.setText(seekBar.getProgress() + "");
+                //드래그가 끝난뒤 표시됨
+            }
+        });
+//                       tradeVO.setOrderPrice(Integer.parseInt(seekBar.get));
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("FRAGMENTSELL",String.valueOf(seekBar.getProgress()));
+
+                loadOrder(new TradeVO("SELL","S",ProductNameTemp.getInstance().getProductNameTemp(),seekBar.getProgress()));
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
 //        if(getArguments() != null) { // bearertoken 받아오기
 //            String token = getArguments().getString("bearertoken");
 //        }
+
+
         return rootView;
     }
 
@@ -53,58 +105,94 @@ public class FragmentSell extends Fragment {
 
     }
 
-    public void loadStartSell(ViewGroup rootView){
-        SeekBar seekBar = (SeekBar)rootView.findViewById(R.id.sell_seekbar);
+    public TradeVO loadStartSell(ViewGroup rootView){
+        TradeVO tradeVO =new TradeVO();
         TextView hopeBuyPrice = (TextView)rootView.findViewById(R.id.sell_hopebuyprice_text);
         TextView PaymentText = (TextView)rootView.findViewById(R.id.sell_paymenttext_text);
-        ImageView sellImage = (ImageView)rootView.findViewById(R.id.sell_mainpicture_image);
-        TextView sellImageText = (TextView)rootView.findViewById(R.id.sell_nemestuff_text);
+
         TextView sellImageModelText = (TextView)rootView.findViewById(R.id.sell_modeltuff_text);
+        TextView submit = (TextView)rootView.findViewById(R.id.sell_sellprice_text);
+        TextView minPrice = (TextView)rootView.findViewById(R.id.sell_smallestprice_text);
+        TextView maxPrice = (TextView)rootView.findViewById(R.id.sell_biggestprice_text);
 
 
-        SellStartService.sell(ProductNameTemp.getInstance().getProductNameTemp()).enqueue(new Callback<SellDTO>() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onResponse(Call<SellDTO> call, Response<SellDTO> response) {
-                if (response.isSuccessful()) {
-                    Log.d("Next!",response.body().getData().getResult().getProductname());
-                    Glide.with(rootView).load(response.body().getData().getResult().getProductpicture()).into(sellImage);
-                    sellImageText.setText(response.body().getData().getResult().getProductname());
-                    sellImageModelText.setText(response.body().getData().getResult().getModelname());
-                    hopeBuyPrice.setText(Integer.toString(response.body().getData().getResult().getShippingprice())+"  원");
-                    PaymentText.setText(Integer.toString(response.body().getData().getResult().getShippingprice())+"  원");
-                    seekBar.setMax(100);
-                    seekBar.setProgress(response.body().getData().getResult().getShippingprice());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            SellStartService.sell(ProductNameTemp.getInstance().getProductNameTemp(),LocalDate.now().minusDays(5)).enqueue(new Callback<SellDTO>() {
+                @RequiresApi(api = Build.VERSION_CODES.O)
+                @Override
+                public void onResponse(Call<SellDTO> call, Response<SellDTO> response) {
+                    if (response.isSuccessful()) {
+                        Log.d("Next!",response.body().getResponsemessage().toString());
 
-                    seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-                    @Override//볼륨은 조절해도되지만 화면조절은 버벅될 우려가 있음
-                    public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                        hopeBuyPrice.setText(+seekBar.getProgress() + "  원");
-                        PaymentText.setText(+seekBar.getProgress() + "  원");
-                        LocalDate.now().minusDays(1);
+                        sellImageModelText.setText(response.body().getData().getResult().getModelname());
+                        hopeBuyPrice.setText(Integer.toString(response.body().getData().getResult().getAvgprice())+"  원");
+                        PaymentText.setText(Integer.toString(response.body().getData().getResult().getAvgprice())+"  원");
+                        submit.setText(Integer.toString(response.body().getData().getResult().getAvgprice())+"  원 결제하기");
+                        maxPrice.setText(Integer.toString((int) (response.body().getData().getResult().getHighestprice()+ (response.body().getData().getResult().getHighestprice()*0.1))));
+                        minPrice.setText(Integer.toString((int) (response.body().getData().getResult().getLowestprice()-(response.body().getData().getResult().getHighestprice()*0.1))));
+
+                        seekBar.setMax((int) (response.body().getData().getResult().getHighestprice()+ (response.body().getData().getResult().getHighestprice()*0.1)));
+                        seekBar.setMin((int) (response.body().getData().getResult().getLowestprice()-(response.body().getData().getResult().getHighestprice()*0.1)));
+                        seekBar.setProgress(response.body().getData().getResult().getAvgprice());
+
+
+                    }else{
+
                     }
-                    @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
+                }
 
-                    }
-                    @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
-                        //display.setText(seekBar.getProgress() + "");
-                        //드래그가 끝난뒤 표시됨
-                    }
-                });
-
-
-                }else{
+                @Override
+                public void onFailure(Call<SellDTO> call, Throwable t) {
 
                 }
+            });
+        }
+        return tradeVO;
+    }
+    public void loadImage(ViewGroup rootView){
+        productModelService.productModel(ProductNameTemp.getInstance().getProductNameTemp()).enqueue(new Callback<ProductModelDTO>() {
+            @Override
+            public void onResponse(Call<ProductModelDTO> call, Response<ProductModelDTO> response) {
+                if (response != null && response.body() != null && response.isSuccessful()) {
+                    TextView productName = (TextView)rootView.findViewById(R.id.sell_nemestuff_text);
+                    ImageView Image = (ImageView)rootView.findViewById(R.id.sell_mainpicture_image);
+
+                    productName.setText(response.body().getData().getResult().getProductname());
+                    Glide.with(rootView).load(response.body().getData().getResult().getProductpicture()).into(Image);
+
+                    }else{
+
+                }
+
             }
 
             @Override
-            public void onFailure(Call<SellDTO> call, Throwable t) {
+            public void onFailure(Call<ProductModelDTO> call, Throwable t) {
 
             }
         });
-
     }
+
+    public void loadOrder(TradeVO tradeVO){
+        BiddingTradeService.trade(tradeVO)
+                .enqueue(new Callback<TradeDTO>() {
+                    @Override
+                    public void onResponse(Call<TradeDTO> call, Response<TradeDTO> response) {
+                        if(response != null && response.body() != null && response.isSuccessful()) {
+                            Toast.makeText(getContext(), response.body().getResponsemessage().toString(), Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(getContext(), response.body().getResponsemessage().toString(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
+
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<TradeDTO> call, Throwable t) {
+
+                    }
+                });
+    }
+
+
 }
