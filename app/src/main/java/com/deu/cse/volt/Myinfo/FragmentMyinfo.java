@@ -10,13 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
-import com.deu.cse.volt.Main.Home.HomeInterface;
+import com.deu.cse.volt.RetrofitServiceGenerator.RetrofitBearerServiceGenerator;
 import com.deu.cse.volt.R;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class FragmentMyinfo extends Fragment {
     private MyinfoInterface MyinfoService;

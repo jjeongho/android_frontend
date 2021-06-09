@@ -11,11 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.deu.cse.volt.Login.LoginVO;
-import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
+import com.deu.cse.volt.RetrofitServiceGenerator.RetrofitBearerServiceGenerator;
 import com.deu.cse.volt.Main.Bidding.BiddingDTO;
 import com.deu.cse.volt.Main.Bidding.BiddingInterface;
-import com.deu.cse.volt.Main.DetailThingsActivity;
 import com.deu.cse.volt.Main.Home.MainActivity;
 import com.deu.cse.volt.Main.ProductNameTemp;
 import com.deu.cse.volt.R;
@@ -37,7 +35,7 @@ public class BiddingSellActivity extends AppCompatActivity {
         BiddingTradeService = RetrofitBearerServiceGenerator.createService(BiddingTradeInterface.class);
         BiddingService = RetrofitBearerServiceGenerator.createService(BiddingInterface.class);
         ProductService = RetrofitBearerServiceGenerator.createService((ProductInterface.class));
-        ImageView submit = findViewById(R.id.bidding_sell_sell_btn);
+        TextView submit = findViewById(R.id.bidding_sell_price_text);
 
         TradeVO tradeVO = loadBidding();
         loadProduct();
@@ -80,11 +78,14 @@ public class BiddingSellActivity extends AppCompatActivity {
                     productPrice.setText(Integer.toString(Integer.parseInt(modelPrice))+" 원");
                     totalPrice.setText(Integer.toString(Integer.parseInt(modelPrice))+"  원");
                     tradeVO.setOrderPrice(Integer.parseInt(modelPrice));
+                    Toast.makeText(getApplicationContext(),response.body().getResponsemessage(),Toast.LENGTH_LONG).show();
 
                     Log.e("bidding",response.body().getData().getSell().get(0).getModelname());
 
                 }else{
                     Log.e("bidding",response.body().getData().getSell().get(0).getModelname());
+                    Toast.makeText(getApplicationContext(),response.body().getResponsemessage(),Toast.LENGTH_LONG).show();
+
                 }
             }
 
@@ -129,6 +130,8 @@ public class BiddingSellActivity extends AppCompatActivity {
 
                 }else{
                     String msg = "이미 등록이 되었거나, 처리된 상품입니다.";
+                    Toast.makeText(getApplicationContext(),response.body().getResponsemessage(),Toast.LENGTH_LONG).show();
+
                     //Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
                 }
             }

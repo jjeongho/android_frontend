@@ -74,7 +74,7 @@
                             android:layout_weight="1"
                             android:fontFamily="sans-serif"
                             android:gravity="center_vertical"
-                            android:text="Apple"
+                            android:text=""
                             android:textColor="@color/black"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -90,24 +90,42 @@
                             android:textColor="@color/black"
                             android:textSize="14sp"
                             android:textStyle="bold"
-                            tools:text="iPad Pro Wi-Fi 64GB" />
+                            android:text=""
+                            />
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/main_timetext_text"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginRight="24dp"
-                        android:layout_marginBottom="24dp"
                         android:layout_weight="1"
-                        android:gravity="right|center_vertical"
-                        android:text="23:59:59"
-                        android:textColor="@color/blank_text"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/main_mostpopular_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:layout_gravity="center"
+                            android:textColor="@color/black"
+                            android:layout_weight="1"
+                            android:text="가장 인기있는 제품" />
+
+                        <TextView
+                            android:id="@+id/main_timetext_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="right|center_vertical"
+                            android:text="Apple"
+                            android:textColor="@color/dark_gray"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <ImageView

@@ -18,7 +18,7 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
+import com.deu.cse.volt.RetrofitServiceGenerator.RetrofitBearerServiceGenerator;
 import com.deu.cse.volt.Main.Bidding.BiddingStatus.BiddingTradeInterface;
 import com.deu.cse.volt.Main.Bidding.BiddingStatus.TradeDTO;
 import com.deu.cse.volt.Main.Bidding.BiddingStatus.TradeVO;
@@ -85,6 +85,7 @@ public class FragmentPurchase extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.e("FRAGMENTSELL",String.valueOf(seekBar.getProgress()));
+                Toast.makeText(getContext(),"구매가 등록되었습니다.",Toast.LENGTH_LONG).show();
 
                 loadOrder(new TradeVO("BUY","S",ProductNameTemp.getInstance().getProductNameTemp(),seekBar.getProgress()));
                 Intent intent = new Intent(getActivity(), MainActivity.class);

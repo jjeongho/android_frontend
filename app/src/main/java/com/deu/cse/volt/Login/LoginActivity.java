@@ -14,7 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.deu.cse.volt.Login.IDsearch.IdSearchActivity;
-import com.deu.cse.volt.Login.SignUp.RetrofitSignUpServiceGenerator;
+import com.deu.cse.volt.RetrofitServiceGenerator.RetrofitLoginServiceGenerator;
+import com.deu.cse.volt.RetrofitServiceGenerator.RetrofitSignUpServiceGenerator;
 import com.deu.cse.volt.Login.SignUp.SignUpInterface;
 import com.deu.cse.volt.Login.SignUp.SignupActivity;
 import com.deu.cse.volt.Main.Home.MainActivity;

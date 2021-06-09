@@ -18,15 +18,10 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
-import com.deu.cse.volt.Main.Bidding.BiddingDTO;
-import com.deu.cse.volt.Main.Bidding.BiddingInterface;
+import com.deu.cse.volt.RetrofitServiceGenerator.RetrofitBearerServiceGenerator;
 import com.deu.cse.volt.Main.Bidding.BiddingStatus.BiddingTradeInterface;
 import com.deu.cse.volt.Main.Bidding.BiddingStatus.TradeDTO;
 import com.deu.cse.volt.Main.Bidding.BiddingStatus.TradeVO;
-import com.deu.cse.volt.Main.DetailThings.DetailThingsDTO;
-import com.deu.cse.volt.Main.DetailThings.DetailThingsInterface;
-import com.deu.cse.volt.Main.Home.HomeInterface;
 import com.deu.cse.volt.Main.Home.MainActivity;
 import com.deu.cse.volt.Main.ProductNameTemp;
 import com.deu.cse.volt.R;

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.deu.cse.volt.Login.LoginActivity;
 import com.deu.cse.volt.R;
+import com.deu.cse.volt.RetrofitServiceGenerator.RetrofitSignUpServiceGenerator;
 
 import retrofit2.Call;
 import retrofit2.Callback;

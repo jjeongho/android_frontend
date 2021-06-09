@@ -255,13 +255,39 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/bidding_purchase_purchase_btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="24dp"
-                    app:srcCompat="@drawable/blue_box" />
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="32dp">
+
+                    <ImageView
+                        android:id="@+id/bidding_purchase_purchase_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="center"
+                        app:srcCompat="@drawable/blue_box" />
+
+                    <TextView
+                        android:id="@+id/bidding_purchase_price_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/bidding_purchase_purchase_btn"
+                        android:layout_alignTop="@+id/bidding_purchase_purchase_btn"
+                        android:layout_alignRight="@+id/bidding_purchase_purchase_btn"
+                        android:layout_alignBottom="@+id/bidding_purchase_purchase_btn"
+
+                        android:gravity="center"
+                        android:text="결제하기"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
 
             </LinearLayout>
         </ScrollView>

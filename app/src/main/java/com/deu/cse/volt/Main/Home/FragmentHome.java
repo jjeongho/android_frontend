@@ -1,8 +1,6 @@
 package com.deu.cse.volt.Main.Home;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
-import com.deu.cse.volt.Main.DetailThingsActivity;
-import com.deu.cse.volt.Main.Home.HomeAdapter;
-import com.deu.cse.volt.Main.Home.HomeDTO;
-import com.deu.cse.volt.Main.Home.HomeInterface;
+import com.deu.cse.volt.RetrofitServiceGenerator.RetrofitBearerServiceGenerator;
 import com.deu.cse.volt.R;
 
 import java.util.List;
@@ -71,7 +65,7 @@ public class FragmentHome extends Fragment {
                 if (response.isSuccessful()) {
                     mainText.setText(response.body().getData().getResult().get(0).getProductname());
                     brandText.setText(response.body().getData().getResult().get(0).getManufacturer());
-                    priceText.setText(Integer.toString(response.body().getData().getResult().get(0).getShippingprice()));
+                    priceText.setText(Integer.toString(response.body().getData().getResult().get(0).getShippingprice())+"  원");
                     Glide.with(rootView).load(response.body().getData().getResult().get(0).getProductpicture()).into(mainImage);
                 }else{
 //                    Log.e("onfailed",response.body().getData().getResult().toString());

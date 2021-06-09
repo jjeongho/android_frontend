@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.deu.cse.volt.Login.BearerTokenTemp;
+import com.deu.cse.volt.Main.DetailThings.ChartModelTemp;
 import com.deu.cse.volt.Main.DetailThingsActivity;
 import com.deu.cse.volt.Main.ProductNameTemp;
 import com.deu.cse.volt.R;
@@ -42,7 +43,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull HomeAdapter.MyViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.modelName.setText(String.valueOf(HomeList.get(position).getProductname())); //productname
         holder.modelPrice.setText(String.valueOf(HomeList.get(position).getShippingprice())+"원");
-        holder.modelCreated.setText(String.valueOf(HomeList.get(position).getCreatedAt()));
+        holder.modelCreated.setText(String.valueOf(HomeList.get(position).getManufacturer()));
         holder.itemView.setTag(position); //커스텀 리스트 뷰의 각각의 리스트를 의미
         Glide.with(context).load(HomeList.get(position).getProductpicture()).into(holder.modelImage);
 
@@ -57,7 +58,8 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
                 String model = String.valueOf(HomeList.get(position).getModelname());   //modelname
                 ProductNameTemp.getInstance().setProductNameTemp(model); // bearertokentemp 클래스에 저장
 
-                
+
+
                 Intent intent;//인텐트 선언
                 intent = new Intent(context, DetailThingsActivity.class); //look_memo.class부분에 원하는 화면 연결
                 intent.putExtra("modelName", modelName); //변수값 인텐트로 넘기기

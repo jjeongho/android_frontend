@@ -50,7 +50,7 @@
 
             <LinearLayout
                 android:id="@+id/notice_update3.layout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -85,28 +85,20 @@
 
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/notice_blank3"
-                    android:layout_width="247dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    tools:srcCompat="@color/white" />
-
-                <ImageView
-                    android:id="@+id/notice_update3_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_weight="1"
-                    tools:srcCompat="@drawable/chevron_right" />
-
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/bg_primary" />
 
             <LinearLayout
                 android:id="@+id/notice_update2.layout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -141,21 +133,13 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/notice_blank2"
-                    android:layout_width="247dp"
-                    android:layout_height="match_parent"
-                    tools:srcCompat="@color/white" />
-
-                <ImageView
-                    android:id="@+id/notice_update2_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/chevron_right" />
-
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:srcCompat="@drawable/bg_primary" />
             </LinearLayout>
 
         </LinearLayout>

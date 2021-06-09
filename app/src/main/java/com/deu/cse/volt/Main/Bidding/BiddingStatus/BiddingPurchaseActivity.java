@@ -2,7 +2,6 @@ package com.deu.cse.volt.Main.Bidding.BiddingStatus;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,10 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.deu.cse.volt.Login.RetrofitBearerServiceGenerator;
+import com.deu.cse.volt.RetrofitServiceGenerator.RetrofitBearerServiceGenerator;
 import com.deu.cse.volt.Main.Bidding.BiddingDTO;
 import com.deu.cse.volt.Main.Bidding.BiddingInterface;
-import com.deu.cse.volt.Main.DetailThingsActivity;
 import com.deu.cse.volt.Main.Home.MainActivity;
 import com.deu.cse.volt.Main.ProductNameTemp;
 import com.deu.cse.volt.R;
@@ -37,7 +35,7 @@ public class BiddingPurchaseActivity extends AppCompatActivity {
         BiddingService = RetrofitBearerServiceGenerator.createService(BiddingInterface.class);
         ProductService = RetrofitBearerServiceGenerator.createService(ProductInterface.class);
         BiddingTradeService = RetrofitBearerServiceGenerator.createService(BiddingTradeInterface.class);
-        ImageView submit = findViewById(R.id.bidding_purchase_purchase_btn);
+        TextView submit = findViewById(R.id.bidding_purchase_price_text);
         TradeVO tradeVO = loadBidding();
 
 
@@ -124,6 +122,7 @@ public class BiddingPurchaseActivity extends AppCompatActivity {
 
                         }else{
                             String msg = "이미 등록이 되었거나, 처리된 상품입니다.";
+                            Toast.makeText(getApplicationContext(),response.body().getResponsemessage(),Toast.LENGTH_LONG).show();
                             //Toast.makeText(getApplicationContext(),msg,Toast.LENGTH_LONG).show();
 
                         }
